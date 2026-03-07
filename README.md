@@ -174,7 +174,7 @@ Place it at: `backend/data/kaggle/dataset.csv`
 ## Environment Variables
 
 ```env
-GEMINI_API_KEY=AIza...                    # Required for unmatched songs
+GEMINI_API_KEY=AIzaSy...                    # Required for unmatched songs
 GEMINI_MODEL=gemini-2.0-flash             # Or gemini-1.5-flash
 
 KAGGLE_CSV_PATH=backend/data/kaggle/dataset.csv
