@@ -14,7 +14,6 @@ dist/
 .DS_Store
 
 # Data (do not commit large CSVs or cache)
-backend/data/kaggle/
 backend/data/cache/
 
 # IDE
