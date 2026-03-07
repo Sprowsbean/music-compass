@@ -23,7 +23,7 @@ import pandas as pd
 log = logging.getLogger("kaggle_lookup")
 
 # ── Config ────────────────────────────────────────────────────────────────────
-KAGGLE_CSV_PATH = Path(os.getenv("KAGGLE_CSV_PATH", "data/kaggle/dataset.csv"))
+KAGGLE_CSV_PATH = Path(os.getenv("KAGGLE_CSV_PATH", "data/kaggle/dataset.csv")).resolve()
 CACHE_PATH      = Path(os.getenv("CACHE_PATH",      "backend/data/cache/score_cache.json"))
 GEMINI_API_KEY  = os.getenv("GEMINI_API_KEY", "")
 GEMINI_MODEL    = os.getenv("GEMINI_MODEL", "gemini-2.0-flash")

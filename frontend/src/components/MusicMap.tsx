@@ -85,7 +85,7 @@ export default function MusicMap({ songs, userColor, userName, regression, multi
     const maxMs  = Math.max(...msList, 1);
     const minMs  = Math.min(...msList, 1);
     const range  = maxMs - minMs || 1;
-    return plotSongs.map(s => 25 + ((s.total_ms || minMs) - minMs) / range * 480);
+    return plotSongs.map(s => { const norm = ((s.total_ms || minMs) - minMs) / range; return 4 + Math.pow(norm, 0.25) * 20; });
   }, [plotSongs]);
 
   const chartData = useMemo(
@@ -204,13 +204,15 @@ export default function MusicMap({ songs, userColor, userName, regression, multi
               />
             )}
 
-            <Scatter data={chartData} fillOpacity={0.78}>
-              {chartData.map((s, i) => {
+            <Scatter data={chartData} shape={(props: any) => {
+                const { cx, cy, payload } = props;
                 const color = isMulti
-                  ? ((s as any).user_color || userColor)
-                  : SOURCE_COLOR[s.source] ?? userColor;
-                return <Cell key={i} fill={color} fillOpacity={0.72} />;
-              })}
+                  ? ((payload as any).user_color || userColor)
+                  : SOURCE_COLOR[payload.source] ?? userColor;
+                const radius = Math.max(4, Math.min(Math.sqrt(payload.r / 1000) * 0.8, 25));
+                return <circle cx={cx} cy={cy} r={radius} fill={color} fillOpacity={0.75} />;
+              }}>
+
             </Scatter>
           </ScatterChart>
         </ResponsiveContainer>
