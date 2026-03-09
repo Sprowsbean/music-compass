@@ -6,18 +6,9 @@ GET  /scores/stats         →  cache stats
 
 from fastapi import APIRouter
 from pydantic import BaseModel
-from typing import Optional
-from app.services.kaggle_lookup import SongLookupEngine
+from app.services.kaggle_lookup import get_engine
 
-router  = APIRouter(prefix="/scores", tags=["scores"])
-_engine: Optional[SongLookupEngine] = None
-
-
-def get_engine() -> SongLookupEngine:
-    global _engine
-    if _engine is None:
-        _engine = SongLookupEngine()
-    return _engine
+router = APIRouter(prefix="/scores", tags=["scores"])
 
 
 class SongIn(BaseModel):
