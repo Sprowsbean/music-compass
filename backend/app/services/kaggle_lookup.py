@@ -26,7 +26,7 @@ log = logging.getLogger("kaggle_lookup")
 KAGGLE_CSV_PATH = Path(os.getenv("KAGGLE_CSV_PATH", "data/kaggle/dataset.csv")).resolve()
 CACHE_PATH      = Path(os.getenv("CACHE_PATH",      "backend/data/cache/score_cache.json"))
 GEMINI_API_KEY  = os.getenv("GEMINI_API_KEY", "")
-GEMINI_MODEL    = os.getenv("GEMINI_MODEL", "gemini-2.0-flash")
+GEMINI_MODEL = os.getenv("GEMINI_MODEL", "gemini-2.5-flash-preview-04-17")
 
 FUZZY_THRESHOLD = 80
 
