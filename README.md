@@ -175,7 +175,7 @@ Place it at: `backend/data/kaggle/dataset.csv`
 
 ```env
 GEMINI_API_KEY=AIzaSy...                    # Required for unmatched songs
-GEMINI_MODEL=gemini-2.0-flash             # Or gemini-1.5-flash
+GEMINI_MODEL=gemini-2.5-flash-preview-04-17             # Or gemini-1.5-flash
 
 KAGGLE_CSV_PATH=backend/data/kaggle/dataset.csv
 CACHE_PATH=backend/data/cache/score_cache.json
